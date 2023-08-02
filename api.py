@@ -1,3 +1,5 @@
+import os
+
 from bs4 import BeautifulSoup as bs
 import requests
 
@@ -8,7 +10,7 @@ def get_link_to_retell(url: str) -> dict:
       json = {
         'article_url': url
       },
-      headers = {'Authorization': 'OAuth y0_AgAAAABB9ET6AAoX4wAAAADpKZtzcmP_xUZdQZKq92FuAzMqvV_X-rg'}
+      headers = {'Authorization': f'OAuth {os.environ["YANDEX_API"]}'}
       )
   return response.json()
 
